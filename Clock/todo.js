@@ -17,20 +17,44 @@ const toDoForm = document.querySelector(".js-toDoForm"),
         saveToDos();
     }
 
+    function checkToDos(){
+      
+        const btn = event.target;
+        const li = btn.parentNode;
+        
+        
+        console.log(li);
+        console.log(li.children);
+        console.log(li.querySelector('span').style.textDecorationLine === "line-through");
+        
+        if(li.querySelector('span').style.textDecorationLine === "line-through"){
+            li.querySelector('span').style.textDecorationLine = '';
+        } else {
+            li.querySelector('span').style.textDecorationLine = "line-through"
+        }
+    
+    }
+
     function saveToDos() {
         localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
     }
 
     function paintToDo(text){
-       const li =document.createElement("li");
+       const li =document.createElement("li");      
+       const checkBtn = document.createElement("button");      
        const delBtn = document.createElement("button");
        const span = document.createElement("span");
        const newId = toDos.length + 1;
        delBtn.innerText = "❌" ;
        delBtn.addEventListener("click",deleteToDo);       
+       checkBtn.innerText = "✅";
+       checkBtn.addEventListener("click",checkToDos);
        span.innerText = text;
+       
+       li.appendChild(checkBtn);
        li.appendChild(delBtn);
        li.appendChild(span);
+       
        li.id =newId;
        toDoList.appendChild(li);
        const toDoObj ={
