@@ -10,6 +10,10 @@ ul {
   padding: 0rem;
 }
 
+li {
+  margin-bottom: 2%;
+}
+
 button {
   margin-right: 10px;
 }
