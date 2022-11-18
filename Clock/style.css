@@ -9,8 +9,18 @@ ul {
   list-style-type: none;
   padding: 0rem;
 }
+
+button {
+  margin-right: 10px;
+}
+
 h1 {
   font-size: 50px;
+}
+
+h1.title {
+ font-size: 100px;
+ margin: 0;
 }
 
 h4.grettings {
